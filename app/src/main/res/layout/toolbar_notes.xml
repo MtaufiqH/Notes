@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="?attr/actionBarSize"
+    android:background="@color/colorPrimary"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:weightSum="100">
+
+    <RelativeLayout
+        android:id="@+id/back_container"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="10">
+
+        <android.support.v7.widget.AppCompatImageButton
+            android:id="@+id/note_back"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_centerInParent="true"
+            android:background="?attr/selectableItemBackground"
+            android:src="@drawable/ic_chevron_left_black" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:visibility="gone"
+        android:id="@+id/check_container"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="10">
+
+        <android.support.v7.widget.AppCompatImageButton
+            android:id="@+id/note_check"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_centerInParent="true"
+            android:background="?attr/selectableItemBackground"
+            android:src="@drawable/ic_check_black" />
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/note_title_id"
+        android:visibility="visible"
+        android:textColor="@android:color/black"
+        android:textSize="23sp"
+        android:layout_weight="85"
+        android:layout_width="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_height="wrap_content"
+        android:text="Note text title"/>
+
+    <EditText
+        android:id="@+id/note_title_edit_id"
+        android:visibility="gone"
+        android:layout_marginStart="8dp"
+        android:layout_weight="85"
+        android:layout_width="0dp"
+        android:padding="2dp"
+        android:textColor="@android:color/black"
+        android:textSize="23sp"
+        android:background="@android:color/white"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>
