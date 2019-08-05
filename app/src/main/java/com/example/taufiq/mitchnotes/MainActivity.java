@@ -33,17 +33,22 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewAdapt
         initRecyclerView();
         dummyNotes();
 
+
+
+        // Add notes with clicking Floating Action Button
         fab_addNotes = findViewById(R.id.fab_add_note);
         fab_addNotes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Intent intent = new Intent(MainActivity.this,NoteActivity.class);
+                startActivity(intent);
             }
         });
 
     }
 
 
+    // initialisation RecylerView
     private void initRecyclerView() {
         RecyclerViewAdapter adapter = new RecyclerViewAdapter(notes, this);
         // UI Component
@@ -57,6 +62,7 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewAdapt
 
 
 
+    // dummy data for RecylerView Item.
     private void dummyNotes() {
 
         for (int i = 1; i <= 20; i++) {
@@ -71,6 +77,7 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewAdapt
      *
      * @param positions on the list
      **/
+    // when notes is clicked move send data from Model to Note Editor.
 
     @Override
     public void onNoteClick(int positions) {

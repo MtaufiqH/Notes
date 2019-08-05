@@ -135,7 +135,7 @@ public class NoteActivity extends AppCompatActivity implements View.OnTouchListe
 
 
     /*
-     * this method used to get new incoming notes notes
+     * this method used to get new incoming notes from intent Extras.
      * */
     private boolean getIncomingIntent() {
         if (getIntent().hasExtra("ALL_NOTES")) {
