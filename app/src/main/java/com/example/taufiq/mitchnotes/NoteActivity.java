@@ -251,4 +251,24 @@ public class NoteActivity extends AppCompatActivity implements View.OnTouchListe
         }
 
     }
+
+
+
+    /*
+     * Save the state with SaveInstanceState
+     * */
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putInt("mode",MODE);
+    }
+
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        savedInstanceState.getInt("mode");
+        enableEditMode();
+    }
 }
