@@ -2,10 +2,12 @@ package com.example.taufiq.mitchnotes;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.view.View;
 
 import com.example.taufiq.mitchnotes.adapter.RecyclerViewAdapter;
 import com.example.taufiq.mitchnotes.models.Notes;
@@ -17,6 +19,7 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewAdapt
 
     // Variable Section
     private ArrayList<Notes> notes = new ArrayList<>();
+    private FloatingActionButton fab_addNotes;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +32,14 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewAdapt
 
         initRecyclerView();
         dummyNotes();
+
+        fab_addNotes = findViewById(R.id.fab_add_note);
+        fab_addNotes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
 
     }
 
