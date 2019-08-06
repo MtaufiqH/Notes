@@ -105,7 +105,7 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewAdapt
 
     /*
     * ItemTouchHelper.SimpleCallback
-    * Funtion that makes RecylerView item can be swiped.
+    * Function that makes RecylerView item can be swiped.
     * */
     private ItemTouchHelper.SimpleCallback touchHelper = new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT) {
         @Override

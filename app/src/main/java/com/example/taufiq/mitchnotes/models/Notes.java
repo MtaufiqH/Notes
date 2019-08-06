@@ -1,17 +1,33 @@
 package com.example.taufiq.mitchnotes.models;
 
+import android.arch.persistence.room.ColumnInfo;
+import android.arch.persistence.room.Entity;
+import android.arch.persistence.room.Ignore;
+import android.arch.persistence.room.PrimaryKey;
 import android.os.Parcel;
 import android.os.Parcelable;
+import android.support.annotation.NonNull;
 
 /**
  * Created By Taufiq on 6/25/2019.
- * MitchNotes
+ *
  */
 
+@Entity(tableName = "notes_table")
 public class Notes implements Parcelable {
 
+    @PrimaryKey(autoGenerate = true)
+    private int id;
+
+
+    @ColumnInfo(name = "title")
     private String title;
+
+    @ColumnInfo(name = "content")
     private String content;
+
+
+    @ColumnInfo(name = "timestamp")
     private String timeStamp;
 
     public Notes(String title, String content, String timeStamp) {
@@ -21,8 +37,12 @@ public class Notes implements Parcelable {
         this.timeStamp = timeStamp;
     }
 
+    @Ignore
+    public Notes(){}
+
 
     protected Notes(Parcel in) {
+        id = in.readInt();
         title = in.readString();
         content = in.readString();
         timeStamp = in.readString();
@@ -39,6 +59,14 @@ public class Notes implements Parcelable {
             return new Notes[size];
         }
     };
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getTitle() {
         return title;
@@ -64,14 +92,6 @@ public class Notes implements Parcelable {
         this.timeStamp = timeStamp;
     }
 
-    @Override
-    public String toString() {
-        return "Notes{" +
-                "title='" + title + '\'' +
-                ", content='" + content + '\'' +
-                ", timeStamp='" + timeStamp + '\'' +
-                '}';
-    }
 
     @Override
     public int describeContents() {
@@ -79,7 +99,18 @@ public class Notes implements Parcelable {
     }
 
     @Override
+    public String toString() {
+        return "Notes{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", content='" + content + '\'' +
+                ", timeStamp='" + timeStamp + '\'' +
+                '}';
+    }
+
+    @Override
     public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeInt(id);
         parcel.writeString(title);
         parcel.writeString(content);
         parcel.writeString(timeStamp);
